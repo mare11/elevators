@@ -1,0 +1,9 @@
+<div style="display: grid;">
+    <mat-list>
+        @for (elevator of elevatorService.getElevators(); track $index) {
+        <app-elevator [id]="$index" [elevator]="elevator"></app-elevator>
+        } @empty {
+        No elevators present, please add a new one
+        }
+    </mat-list>
+</div>

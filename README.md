@@ -1,5 +1,9 @@
 # Elevators
 
+Application that finds the best elevator, in a bulding with N elevators, for a passenger on a certain floor based on a selected target floor.
+
+It can also simulate other passengers comming in randomly and selecting a random floor.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server

@@ -1,0 +1,20 @@
+<mat-list-item>
+    <mat-icon matListItemIcon>elevator</mat-icon>
+    <span matListItemTitle>Elevator {{id + 1}}</span>
+    <span matListItemLine>Floor: {{elevator.currentFloor}}</span>
+    <span matListItemLine>Status: {{elevator.status}}</span>
+    <span matListItemLine>Direction: {{elevator.direction}}</span>
+    <span matListItemLine>Queue:
+        <mat-chip-set>
+            @for (floor of elevator.getFloors(); track $index) {
+            <mat-chip>{{floor}}</mat-chip>
+            }
+        </mat-chip-set>
+    </span>
+    <span matListItemMeta>
+        <button mat-mini-fab [disabled]="elevator.getFloors().length > 0" (click)="removeElevator()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </span>
+    <br>
+</mat-list-item>

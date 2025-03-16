@@ -1,0 +1,20 @@
+<form #requestElevatorForm="ngForm" style="display: flex;flex-direction: column;"
+    (ngSubmit)="submitForm(requestElevatorForm)">
+    <mat-form-field>
+        <mat-label>Start floor</mat-label>
+        <input matInput #startFloor type="number" ngModel name="startFloor" required
+            [max]="configService.getConfig().numberOfFloors" min="0">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>End floor</mat-label>
+        <input matInput #endFloor type="number" ngModel name="endFloor" required
+            [max]="configService.getConfig().numberOfFloors" min="0">
+    </mat-form-field>
+    <div matTooltip="No elevators present" [matTooltipDisabled]="elevatorService.getElevators().length > 0"
+        style="display: grid;">
+        <button mat-raised-button
+            [disabled]="elevatorService.getElevators().length === 0 || requestElevatorForm.invalid || startFloor.value === endFloor.value">
+            Call an elevator
+        </button>
+    </div>
+</form>

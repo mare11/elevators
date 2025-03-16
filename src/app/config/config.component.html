@@ -1,0 +1,17 @@
+<form #configForm="ngForm" style="display: flex;flex-direction: column;" (ngSubmit)="updateConfig()">
+    <mat-form-field>
+        <mat-label>Number of floors in the building</mat-label>
+        <input matInput type="number" [(ngModel)]="config.numberOfFloors" name="numberOfFloors" required min="1">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Elevator speed (in floors/second)</mat-label>
+        <input matInput type="number" [(ngModel)]="config.elevatorSpeed" name="elevatorSpeed" required min="0">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Wait duration per floor (in seconds)</mat-label>
+        <input matInput type="number" [(ngModel)]="config.waitingPerFloor" name="waitingPerFloor" required min="0">
+    </mat-form-field>
+    <button mat-raised-button [disabled]="configForm.invalid">
+        Update config
+    </button>
+</form>

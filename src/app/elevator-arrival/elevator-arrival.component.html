@@ -1,0 +1,25 @@
+@if (isVisible && elevatorArrival) {
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Elevator Arrival ({{elevatorArrival.startFloor}} <mat-icon
+                style="vertical-align: middle;">double_arrow</mat-icon>
+            {{elevatorArrival.endFloor}})
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p><strong>Elevator:</strong> {{ elevatorArrival.elevator }}</p>
+        @if (elevatorArrival.estimatedWaitTime < 60) { <p><strong>ETA:</strong> {{ elevatorArrival.estimatedWaitTime *
+            1000 | date:'ss'}} sec</p>
+            }
+            @else{
+            <p><strong>ETA:</strong> {{ elevatorArrival.estimatedWaitTime * 1000 | date:'mm:ss'}} min</p>
+            }
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-button (click)="hideArrivalInfo()">Dismiss</button>
+    </mat-card-actions>
+</mat-card>
+}
